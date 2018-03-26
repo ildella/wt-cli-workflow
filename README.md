@@ -21,14 +21,10 @@ wt-cli-workflow deals with
 * task name is the file name without the '.js' extension
 
 ## Usage
-```
-npm install --global generate-webtask
-gen webtask:context
-wtw create index.js
-wtw run index.js dev
-```
 
-## Development 
+TBD: complete npm package and deploy to npmjs
+
+## Development Setup
 
 Checkout the code, then
 ```
@@ -62,4 +58,17 @@ Commands:
 
   create <filepath> [stage]  create a new webtask (will override an exiting one that has the same name)
   run <taskname> [stage]     run a webtask
+```
+
+To try it:
+
+## Usage
+Using generator, is simple to create a basic webtask function and then create + run with Webtask Workflow cli that we just installed
+TBD: missing basic wt setup is needed here, add instructions
+```
+npm install --global generate-webtask
+gen webtask:context
+touch .env
+wtw create index.js
+wtw run index.js
 ```
