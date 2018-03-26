@@ -3,6 +3,9 @@
   "version": "0.0.4",
   "description": "WebTask Workflow - simple workflow for Webtask CLI",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.0"
+  },
   "dependencies": {
     "commander": "~2.15.1",
     "dotenv": "~5.0.1",
