@@ -1,6 +1,6 @@
 {
   "name": "wtw",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "WebTask Workflow - simple workflow for Webtask CLI",
   "main": "index.js",
   "dependencies": {
@@ -17,10 +17,12 @@
     "eslint-plugin-promise": "~3.7.0",
     "eslint-plugin-standard": "~3.0.1",
     "jest": "~22.4.3",
-    "standard": "~11.0.1"
+    "standard": "~11.0.1",
+    "standard-version": "^4.3.0"
   },
   "scripts": {
-    "test": "jest -o --watch"
+    "test": "jest -o --watch",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
