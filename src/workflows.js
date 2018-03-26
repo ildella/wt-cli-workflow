@@ -1,7 +1,7 @@
 'use strict'
 require('dotenv').config()
 const logger = require('tracer').colorConsole({level: 'info'})
-const { spawn } = require('child_process')
+const { exec, spawn } = require('child_process')
 const path = require('path')
 
 async function createWebtask (filepath, stage) {
@@ -52,4 +52,15 @@ async function runWebtask (input, stage) {
   })
 }
 
-module.exports = { createWebtask, runWebtask }
+async function listWebtasks (input) {
+  exec(`wt ls |grep ${input}`, (err, stdout, stderr) => {
+    if (err) {
+      logger.error(err)
+      return
+    }
+    console.log(`${stdout}`)
+    console.log(`${stderr}`)
+  })
+}
+
+module.exports = { createWebtask, runWebtask, listWebtasks }

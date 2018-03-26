@@ -16,4 +16,9 @@ program
   .description('run a webtask')
   .action((taskname, stage) => wt.runWebtask(taskname, stage))
 
+program
+  .command('ls <search>')
+  .description('list all webtaskthat contain the search text')
+  .action(taskname => wt.listWebtasks(taskname))
+
 program.parse(process.argv)
