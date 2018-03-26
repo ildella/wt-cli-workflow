@@ -1,5 +1,6 @@
-# wt-cli-workflow
-Simple, standard and opinionated workflow for Webtask CLI
+
+# wtw - WebTask Workflow [![npm version](https://www.npmjs.com/package/wtw)]
+A simple workflow for Webtask CLI
 
 ## Why Webtask
 A basic CLI that helps working with [Webtask CLI](https://github.com/auth0/wt-cli)
