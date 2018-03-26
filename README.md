@@ -40,7 +40,7 @@ This will create a symboli link under user home, something like
 ~/.nvm/versions/node/v8.9.4/lib/node_modules/wt-cli-workflow -> ~/{project folder}/wt-cli-workflow
 ```
 
-Now create a symbolic link to use the CLI globally. In Ubuntu I recomment:
+Now create a symbolic link to use the CLI globally. In Ubuntu I recommend:
 ```
 sudo update-alternatives --install /usr/bin/wtw wtw ~/.nvm/versions/node/v8.9.4/lib/node_modules/wt-cli-workflow/src/cli.js 1
 ```
