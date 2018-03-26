@@ -1,6 +1,6 @@
 {
   "name": "wtw",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "WebTask Workflow - simple workflow for Webtask CLI",
   "main": "index.js",
   "dependencies": {
