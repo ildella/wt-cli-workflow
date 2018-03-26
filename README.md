@@ -63,7 +63,7 @@ Commands:
 To try it:
 
 ## Usage
-Using generator, is simple to create a basic webtask function and then create + run with Webtask Workflow cli that we just installed
+Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function and then create and run it with the Webtask Workflow CLI that we just installed
 TBD: missing basic wt setup is needed here, add instructions
 ```
 npm install --global generate-webtask
