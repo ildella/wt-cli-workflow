@@ -1,5 +1,5 @@
 
-# wtw - WebTask Workflow [![npm version](https://www.npmjs.com/package/wtw)]
+# wtw - WebTask Workflow [![NPM version](https://img.shields.io/npm/v/standard-version.svg)](https://www.npmjs.com/package/wtw)
 A simple workflow for Webtask CLI
 
 ## Why Webtask
