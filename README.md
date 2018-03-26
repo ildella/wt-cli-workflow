@@ -24,7 +24,7 @@ wt-cli-workflow deals with
 
 TBD: complete npm package and deploy to npmjs
 
-## Development Setup
+## Setup development environment
 
 Checkout the code, then
 ```
@@ -60,7 +60,6 @@ Commands:
   run <taskname> [stage]     run a webtask
 ```
 
-To try it:
 
 ## Usage
 Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function and then create and run it with the Webtask Workflow CLI that we just installed

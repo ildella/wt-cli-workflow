@@ -32,7 +32,7 @@ async function runWebtask (input, stage) {
   logger.info(`update and monitor --> ${webtask} from source ${filepath}`)
   const wt = spawn('wt', [`update`, `${webtask}`, `${filepath}`, '-w'])
   wt.stdout.on('data', function (data) {
-    console.log('STDOUT: ' + data.toString())
+    console.log(data.toString().replace('\n'))
   })
   wt.stderr.on('data', function (data) {
     if (data.toString().includes(WEBTASK_DOESNT_EXISTS, WEBTASK_FILE_NOT_FOUND) > -1) {
@@ -43,7 +43,6 @@ async function runWebtask (input, stage) {
     // TODO: write addidional error to file
   })
   wt.on('exit', function (code) {
-    // console.log('child process exited with code ' + code.toString())
     process.exit(code)
   })
 }
