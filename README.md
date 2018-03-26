@@ -20,11 +20,15 @@ wt-cli-workflow deals with
 * stage is used suffix in deploying the webtask (eg: myfile-test, myfile-prod)
 * task name is the file name without the '.js' extension
 
-## Usage
+## Pre-requisites
+Obviously, Webtask is required.
+Webtask needs an account (is provided as a service) and a cli installed with npm.
+This [instructions](https://webtask.io/cli) are straightforward and will take 1 minute.
 
+## Usage
 TBD: complete npm package and deploy to npmjs
 
-## Setup development environment
+## Setup Development environment
 
 Checkout the code, then
 ```
@@ -63,7 +67,6 @@ Commands:
 
 ## Usage
 Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function and then create and run it with the Webtask Workflow CLI that we just installed
-TBD: missing basic wt setup is needed here, add instructions
 ```
 npm install --global generate-webtask
 gen webtask:context
