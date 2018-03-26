@@ -28,9 +28,9 @@ Webtask needs an account (is provided as a service) and a cli installed with npm
 This [instructions](https://webtask.io/cli) are straightforward and will take 1 minute.
 
 ## Usage
-TBD: complete npm package and deploy to npmjs
+TBD: complete npm package and publish it
 
-## Setup Development environment
+## Setup development environment
 
 Checkout the code, then
 ```
@@ -68,7 +68,7 @@ Commands:
 ```
 
 
-## Usage
+## Usage for developers
 Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function and then create and run it with the Webtask Workflow CLI that we just installed
 ```
 npm install --global generate-webtask
