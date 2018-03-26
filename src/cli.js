@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 const program = require('commander')
 const wt = require('./workflows')
+const pjson = require('../package.json')
 
 program
-  .version('0.0.1')
-  .description('Webtask Workflow CLI')
+  .version(pjson.version)
+  .description(pjson.description)
 
 program
   .command('create <filepath> [stage]')

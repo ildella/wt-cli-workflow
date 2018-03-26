@@ -1,6 +1,6 @@
 {
   "name": "wt-cli-workflow",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Simple, standard and opinionated workflow for Webtask CLI",
   "main": "index.js",
   "dependencies": {
