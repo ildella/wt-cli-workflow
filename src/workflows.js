@@ -43,7 +43,8 @@ function _createWebtaskBasic (filepath, stage, options) {
 
 async function runWebtask (input, stage) {
   const filepath = input.includes('.js') ? input : `${input}.js`
-  const taskname = input.includes('.js') ? input.replace('.js', '') : input
+  const filename = path.basename(filepath).replace('.js', '')
+  const taskname = filename
   const actualStage = stage || defaultStage
   const webtask = `${taskname}-${actualStage}`
   logger.info(`run with live redeploy --> ${webtask} from source ${filepath}`)
