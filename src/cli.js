@@ -27,4 +27,9 @@ program
   .description('list all webtask that contain the search text (using grep, nothing more)')
   .action(taskname => wt.listWebtasks(taskname))
 
+program
+  .command('rm [tasks...]')
+  .description('remove all the specified webtasks')
+  .action(tasks => wt.rmWebtasks(tasks))
+
 program.parse(process.argv)

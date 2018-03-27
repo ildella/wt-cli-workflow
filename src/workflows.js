@@ -77,4 +77,17 @@ async function listWebtasks (input) {
   })
 }
 
-module.exports = { createWebtask, runWebtask, listWebtasks, cronWebtask }
+async function rmWebtasks (webtasks) {
+  webtasks.forEach(function (task) {
+    exec(`wt rm ${task}`, (err, stdout, stderr) => {
+      if (err) {
+        logger.error(err)
+        return
+      }
+      console.log(`${stdout}`)
+      console.log(`${stderr}`)
+    })
+  })
+}
+
+module.exports = { createWebtask, cronWebtask, runWebtask, listWebtasks, rmWebtasks }
