@@ -12,12 +12,12 @@ Create a remote webtask from an existing file (wraps 'wt create'):
 ```shell
 wtw create myfile.js
 ```
-Run the remote webtask and keep deploy every local change (wraps 'wt update -w'):
+Run the remote webtask and keep monitoring for every local change (wraps 'wt update -w'):
 ```shell
 wtw run myfile.js
 ```
 
-## Motivations and approach
+## Motivations, approach and conventions
 
 ### Why Webtask
 Webtask is a general purpose Function as a Service (or serverless) provider. Simple NodeJS functions can be a task executed on a remote server almost instantly and has a public accessible URL. That's a Webtask
@@ -33,21 +33,22 @@ wt-cli-workflow deals with
 3. make it easy to setup a continuous testing, integration and deliver environment based on Webtask (TBD)
 
 ### Conventions
-* Use .env to store keys, credentials and various secrets
+* Use .env files to store keys, credentials and various secrets
 * stage is used as prefix in .env file (eg: test.env, prod.env)
 * stage is used suffix in deploying the webtask (eg: myfile-test, myfile-prod)
 * task name is the file name without the '.js' extension
+
+## Usage
 
 ### Pre-requisites
 Obviously, Webtask is required. The setup takes 1 minute
 Create an account and a install a CLI with npm following this [instructions](https://webtask.io/cli)
 
-## Usage
-Once the basic environment has been setup, working with serverless functions requires mostly two things.
+Once the basic environment has been setup, working with serverless functions is mostly about:
 1. Creating a new function (not very often)
 2. code, test, deploy, release (most of the time)
 
-Well, exactly what happens in any other kind of development, right? 
+Well, exactly what happens in any other kind of development, right?
 Webtask cli offer great foundamentals but in real world there are 2 things we almost always need that are not easy to get with simple commands:
 1. secret environment variable to connect to databases, APIs...
 2. different environments for development, testing, staging, production...
