@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/ildella/wt-cli-workflow/compare/v0.1.1...v0.1.2) (2018-03-27)
+
+
+### Bug Fixes
+
+* **run:** suport for file in any path not only in the same folder, the code makes more sense as well ([b3e8e2b](https://github.com/ildella/wt-cli-workflow/commit/b3e8e2b))
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/ildella/wt-cli-workflow/compare/v0.1.0...v0.1.1) (2018-03-27)
 
