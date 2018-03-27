@@ -13,6 +13,11 @@ program
   .action((filepath, stage) => wt.createWebtask(filepath, stage))
 
 program
+  .command('cron <filepath> <schedule> [stage]')
+  .description('')
+  .action((filepath, schedule, stage) => wt.cronWebtask(filepath, schedule, stage))
+
+program
   .command('run <taskname> [stage]')
   .description('run a webtask')
   .action((taskname, stage) => wt.runWebtask(taskname, stage))

@@ -5,11 +5,22 @@ const { exec, spawn } = require('child_process')
 const path = require('path')
 const defaultStage = 'dev'
 
-async function createWebtask (filepath, stage) {
+function cronWebtask (filepath, schedule, stage) {
+  const options = ['cron', 'create', '--schedule', `${schedule}`, '--tz', 'UTC']
+  return _createWebtaskBasic(filepath, stage, options)
+}
+
+function createWebtask (filepath, stage) {
+  const options = [`create`]
+  return _createWebtaskBasic(filepath, stage, options)
+}
+
+function _createWebtaskBasic (filepath, stage, options) {
   const filename = path.basename(filepath).replace('.js', '')
   const actualStage = stage || defaultStage
   const taskname = `${filename}-${actualStage}`
-  const wt = spawn('wt', [`create`, '--secrets-file', '.env', '--name', `${taskname}`, `${filepath}`])
+  options.push('--secrets-file', '.env', '--name', taskname, filepath)
+  const wt = spawn('wt', options)
   wt.stdout.on('data', function (data) {
     console.log(data.toString().replace('\n', ''))
   })
@@ -66,4 +77,4 @@ async function listWebtasks (input) {
   })
 }
 
-module.exports = { createWebtask, runWebtask, listWebtasks }
+module.exports = { createWebtask, runWebtask, listWebtasks, cronWebtask }
