@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "WebTask Workflow - simple workflow for Webtask CLI",
   "main": "main.js",
+  "bin": {
+    "wtw": "src/cli.js"
+  },
   "engines": {
     "node": ">=8.0"
   },
