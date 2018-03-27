@@ -5,6 +5,10 @@ const { exec, spawn } = require('child_process')
 const path = require('path')
 const defaultStage = 'dev'
 
+const WEBTASK_FILE_MISSING = 'Error resolving the path to the webtask code'
+const WEBTASK_DOESNT_EXISTS = 'Uncaught error:  unable to read the named webtask'
+const WEBTASK_NOT_FOUND = 'Error: Not Found'
+
 function cronWebtask (filepath, schedule, stage) {
   const options = ['cron', 'create', '--schedule', `${schedule}`, '--tz', 'UTC']
   return _createWebtaskBasic(filepath, stage, options)
@@ -25,16 +29,18 @@ function _createWebtaskBasic (filepath, stage, options) {
     console.log(data.toString().replace('\n', ''))
   })
   wt.stderr.on('data', function (data) {
+    logger.error('--- original webtask error ---')
     logger.error(data.toString().replace('\n', ''))
+    if (data.toString().includes(WEBTASK_FILE_MISSING)) {
+      logger.error('--- wtw error ---')
+      logger.error(`A source file named '${filepath}' must exists`)
+    }
   })
   wt.on('exit', function (code) {
     process.exit(code)
   })
 }
 
-const WEBTASK_DOESNT_EXISTS = 'Uncaught error:  unable to read the named webtask'
-const WEBTASK_NOT_FOUND = 'Error: Not Found'
-const WEBTASK_FILE_MISSING = 'Error resolving the path to the webtask code'
 async function runWebtask (input, stage) {
   const filepath = input.includes('.js') ? input : `${input}.js`
   const taskname = input.includes('.js') ? input.replace('.js', '') : input
@@ -51,7 +57,6 @@ async function runWebtask (input, stage) {
     if (data.toString().includes(WEBTASK_FILE_MISSING)) {
       logger.error('--- wtw error ---')
       logger.error(`A source file named '${filepath}' must exists`)
-      logger.error(`Create a basic webtask function file with 'gen webtask:context'`)
     }
     if (data.toString().includes(WEBTASK_NOT_FOUND, WEBTASK_DOESNT_EXISTS)) {
       logger.error('--- wtw error ---')
