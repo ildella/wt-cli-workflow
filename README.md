@@ -32,8 +32,8 @@ wt-cli-workflow deals with
 
 ### Conventions
 * Use .env files to store keys, credentials and various secrets
-* stage is used as prefix in .env file (eg: test.env, prod.env)
-* stage is used suffix in deploying the webtask (eg: myfile-test, myfile-prod)
+* env is used as suffix in .env files (eg: .env.dev, .env.prod)
+* env is used as suffix in deploying the webtask (eg: myfile-test, myfile-prod)
 * task name is the file name without the '.js' extension
 
 ## Usage
@@ -78,7 +78,7 @@ This will update the myfile-dev version with the latest local code and will stay
 
 Here as well, a second parameter will change the environment, affecting which .env file will be used and the remote URL
 
-## Scheduled functions with cron
+### Scheduled functions with cron
 Crete a function that with a specified schedule using cron
 ```shell
 wtw cron myfile.js "*/10 * * * *"
@@ -86,7 +86,7 @@ wtw cron myfile.js "*/10 * * * *"
 That schedule mean every ten minues past the hour. 
 Use [Corntab](http://corntab.com) to master cron :)
 
-## More utilities commands
+### More utilities commands
 ```shell
 wtw ls // accepts a search params that grep TS out of standard 'wt ls'
 wtw rm //accepts a series of webtasks named and removed them using basic 'wt rm'
@@ -125,7 +125,7 @@ Using [generator](https://github.com/generate/generate-webtask) is simple to cre
 ```shell
 npm install -g generate
 generate webtask:context
-touch .env
+touch .env.dev
 wtw-dev create index.js
 wtw-dev run index.js
 ```
