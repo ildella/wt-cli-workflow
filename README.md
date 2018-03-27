@@ -12,16 +12,8 @@ Create a remote webtask from an existing file (wraps 'wt create'):
 ```shell
 wtw create myfile.js
 ```
-Run the remote webtask and keep monitoring for every local change (wraps 'wt update -w'):
-```shell
-wtw run myfile.js
-```
-Crete a function that with a specified schedule using cron
-```shell
-wtw cron myfile.js "*/10 * * * *"
-```
-That schedule mean every ten minues past the hour. 
-Use [Corntab](http://corntab.com) to master cron :)
+
+Jump to Usage section to see more examples.
 
 ## Motivations, approach and conventions
 
@@ -85,6 +77,22 @@ wtw run myfile.js
 This will update the myfile-dev version with the latest local code and will stay open to publish any new local changes
 
 Here as well, a second parameter will change the environment, affecting which .env file will be used and the remote URL
+
+## Scheduled functions with cron
+Crete a function that with a specified schedule using cron
+```shell
+wtw cron myfile.js "*/10 * * * *"
+```
+That schedule mean every ten minues past the hour. 
+Use [Corntab](http://corntab.com) to master cron :)
+
+## More utilities commands
+```shell
+wtw ls // accepts a search params that grep TS out of standard 'wt ls'
+wtw rm //accepts a series of webtasks named and removed them using basic 'wt rm'
+```
+
+Please let me know what commands you would like to see, or feel free to fork and make pull requests :)
 
 ## Developers
 
