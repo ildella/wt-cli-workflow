@@ -3,27 +3,27 @@ require('dotenv').config()
 const logger = require('tracer').colorConsole({level: 'info'})
 const { exec, spawn } = require('child_process')
 const path = require('path')
-const defaultStage = 'dev'
+const defaultEnv = 'dev'
 
 const WEBTASK_FILE_MISSING = 'Error resolving the path to the webtask code'
 const WEBTASK_DOESNT_EXISTS = 'Uncaught error:  unable to read the named webtask'
 const WEBTASK_NOT_FOUND = 'Error: Not Found'
 
-function cronWebtask (filepath, schedule, stage) {
+function cronWebtask (filepath, schedule, env) {
   const options = ['cron', 'create', '--schedule', `${schedule}`, '--tz', 'UTC']
-  return _createWebtaskBasic(filepath, stage, options)
+  return _createWebtaskBasic(filepath, env, options)
 }
 
-function createWebtask (filepath, stage) {
+function createWebtask (filepath, env) {
   const options = [`create`]
-  return _createWebtaskBasic(filepath, stage, options)
+  return _createWebtaskBasic(filepath, env, options)
 }
 
-function _createWebtaskBasic (filepath, stage, options) {
+function _createWebtaskBasic (filepath, env, options) {
   const filename = path.basename(filepath).replace('.js', '')
-  const actualStage = stage || defaultStage
-  const taskname = `${filename}-${actualStage}`
-  options.push('--secrets-file', '.env', '--name', taskname, filepath)
+  const actualEnv = env || defaultEnv
+  const taskname = `${filename}-${actualEnv}`
+  options.push('--secrets-file', `.env.${actualEnv}`, '--name', taskname, filepath)
   const wt = spawn('wt', options)
   wt.stdout.on('data', function (data) {
     console.log(data.toString().replace('\n', ''))
@@ -41,11 +41,11 @@ function _createWebtaskBasic (filepath, stage, options) {
   })
 }
 
-async function runWebtask (input, stage) {
+async function runWebtask (input, env) {
   const filepath = input.includes('.js') ? input : `${input}.js`
   const taskname = path.basename(filepath).replace('.js', '')
-  const actualStage = stage || defaultStage
-  const webtask = `${taskname}-${actualStage}`
+  const actualEnv = env || defaultEnv
+  const webtask = `${taskname}-${actualEnv}`
   logger.info(`run with live redeploy --> ${webtask} from source ${filepath}`)
   const wt = spawn('wt', [`update`, `${webtask}`, `${filepath}`, '-w'])
   wt.stdout.on('data', function (data) {

@@ -8,19 +8,19 @@ program
   .description(pjson.description)
 
 program
-  .command('create <filepath> [stage]')
+  .command('create <filepath> [env]')
   .description('create a new webtask (will override an exiting one that has the same name)')
-  .action((filepath, stage) => wt.createWebtask(filepath, stage))
+  .action((filepath, env) => wt.createWebtask(filepath, env))
 
 program
-  .command('cron <filepath> <schedule> [stage]')
+  .command('cron <filepath> <schedule> [env]')
   .description('create a webtask that run with the specified schedule using cron')
-  .action((filepath, schedule, stage) => wt.cronWebtask(filepath, schedule, stage))
+  .action((filepath, schedule, env) => wt.cronWebtask(filepath, schedule, env))
 
 program
-  .command('run <taskname> [stage]')
+  .command('run <taskname> [env]')
   .description('run a webtask and monitor for local changes')
-  .action((taskname, stage) => wt.runWebtask(taskname, stage))
+  .action((taskname, env) => wt.runWebtask(taskname, env))
 
 program
   .command('ls [search]')
