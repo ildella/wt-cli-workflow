@@ -47,7 +47,7 @@ Once the basic environment has been setup, working with serverless functions is 
 2. code, test, deploy, release (most of the time)
 
 Well, exactly what happens in any other kind of development, right?
-Webtask cli offer great foundamentals but in real world there are 2 things we almost always need that are not easy to get with simple commands:
+Webtask cli offer great foundamentals but in real world there are 2 things we almost always need that are not immediate (for lazy people like me) to get with simple commands:
 1. secret environment variable to connect to databases, APIs...
 2. different environments for development, testing, staging, production...
 
@@ -65,7 +65,7 @@ To publish a different version for example to be used for testing
 ```shell
 wtw create myfile.js test
 ```
-This will create a new function named "myfile-dev", with a specific url that will look like this:
+This will create a new function named "myfile-test", with a specific url that will look like this:
 ```https://XXX-some-code-XXX.sandbox.auth0-extend.com/myfile-test```
 And the test.env file will be used
 
