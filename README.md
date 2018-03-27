@@ -3,6 +3,14 @@
 
 A simple workflow for the Webtask CLI
 
+## Quickstart
+Assuming you already know and have Webtask:
+
+Install with ```npm install -g wtw```
+Check installation and see available commands```wtw --help```
+Create a remote webtask from an existing file```wtw create myfile.js```
+Run the remote webtask and keep deploy every local change: ```wtw run myfile.js```
+
 ## Why Webtask
 A basic CLI that helps working with [Webtask CLI](https://github.com/auth0/wt-cli)
 Webtask is a general purpose Function as a Service (or serverless) provider. Simple NodeJS functions can become a task executed on a remote server almost instantly and has a public accessible URL. That's a Webtask
@@ -23,12 +31,11 @@ wt-cli-workflow deals with
 * task name is the file name without the '.js' extension
 
 ## Pre-requisites
-Obviously, Webtask is required.
-Webtask needs an account (is provided as a service) and a cli installed with npm.
-This [instructions](https://webtask.io/cli) are straightforward and will take 1 minute.
+Obviously, Webtask is required. The setup takes 1 minute
+Create an account and a install a CLI with npm following this [instructions](https://webtask.io/cli)
 
 ## Usage
-TBD: complete npm package and publish it
+TBD
 
 ## Setup development environment
 
@@ -67,7 +74,6 @@ Commands:
   create <filepath> [stage]  create a new webtask (will override an exiting one that has the same name)
   run <taskname> [stage]     run a webtask
 ```
-
 
 ## Usage for developers
 Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function and then create and run it with the Webtask Workflow CLI that we just installed
