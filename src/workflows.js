@@ -43,8 +43,7 @@ function _createWebtaskBasic (filepath, stage, options) {
 
 async function runWebtask (input, stage) {
   const filepath = input.includes('.js') ? input : `${input}.js`
-  const filename = path.basename(filepath).replace('.js', '')
-  const taskname = filename
+  const taskname = path.basename(filepath).replace('.js', '')
   const actualStage = stage || defaultStage
   const webtask = `${taskname}-${actualStage}`
   logger.info(`run with live redeploy --> ${webtask} from source ${filepath}`)
@@ -61,7 +60,7 @@ async function runWebtask (input, stage) {
     }
     if (data.toString().includes(WEBTASK_NOT_FOUND, WEBTASK_DOESNT_EXISTS)) {
       logger.error('--- wtw error ---')
-      logger.error(`A Webtask must be created before it can be run`)
+      logger.error(`A Webtask named '${webtask}' does not exists. It must be created before it can be run`)
       logger.error(`Create a webtask with 'wtw create {filepath}. eg: 'wtw create index.js'`)
     }
   })
