@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/ildella/wt-cli-workflow/compare/v0.0.11...v0.1.0) (2018-03-27)
+
+
+### Features
+
+* **parser:** added 'rm' command that accepts Variadic arguments to remove multiple webtask in one command ([52bce0e](https://github.com/ildella/wt-cli-workflow/commit/52bce0e))
+
+
+
 <a name="0.0.11"></a>
 ## [0.0.11](https://github.com/ildella/wt-cli-workflow/compare/v0.0.10...v0.0.11) (2018-03-27)
 
