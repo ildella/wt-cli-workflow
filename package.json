@@ -2,7 +2,7 @@
   "name": "wtw",
   "version": "0.0.4",
   "description": "WebTask Workflow - simple workflow for Webtask CLI",
-  "main": "index.js",
+  "main": "main.js",
   "engines": {
     "node": ">=8.0"
   },
@@ -37,7 +37,10 @@
     "cli",
     "webtask"
   ],
-  "author": "Daniele Dellafiore",
+  "author": {
+    "name": "Daniele Dellafiore",
+    "twitter": "https://twitter.com/ildella"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ildella/wt-cli-workflow/issues"
