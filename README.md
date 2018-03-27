@@ -101,30 +101,16 @@ sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev ~/.nvm/versions/node
 Change {NODE_VERSION} with your installed version of node
 I call this command wtw-dev so it will not be confused with released version on npmjs 
 
-Now from anywhere:
-```
-$ wtw-dev --help
-
-Usage: wtw [options] [command]
-
-Webtask Workflow CLI
-
-Options:
-
-  -V, --version              output the version number
-  -h, --help                 output usage information
-
-Commands:
-
-  create <filepath> [stage]  create a new webtask (will override an exiting one that has the same name)
-  run <taskname> [stage]     run a webtask
+Now this will show the cli help in the console.
+```shell
+$ wtw-dev -h
 ```
 
 ### Use local version
-Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function and then create and run it with the Webtask Workflow CLI that we just installed
-```
-npm install --global generate-webtask
-gen webtask:context
+Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function to be used as a test.
+```shell
+npm install -g generate
+generate webtask:context
 touch .env
 wtw-dev create index.js
 wtw-dev run index.js

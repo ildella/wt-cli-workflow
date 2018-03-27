@@ -3,10 +3,11 @@ require('dotenv').config()
 const logger = require('tracer').colorConsole({level: 'info'})
 const { exec, spawn } = require('child_process')
 const path = require('path')
+const defaultStage = 'dev'
 
 async function createWebtask (filepath, stage) {
   const filename = path.basename(filepath).replace('.js', '')
-  const actualStage = stage || 'test'
+  const actualStage = stage || defaultStage
   const taskname = `${filename}-${actualStage}`
   const wt = spawn('wt', [`create`, '--secrets-file', '.env', '--name', `${taskname}`, `${filepath}`])
   wt.stdout.on('data', function (data) {
@@ -26,7 +27,7 @@ const WEBTASK_FILE_MISSING = 'Error resolving the path to the webtask code'
 async function runWebtask (input, stage) {
   const filepath = input.includes('.js') ? input : `${input}.js`
   const taskname = input.includes('.js') ? input.replace('.js', '') : input
-  const actualStage = stage || 'test'
+  const actualStage = stage || defaultStage
   const webtask = `${taskname}-${actualStage}`
   logger.info(`run with live redeploy --> ${webtask} from source ${filepath}`)
   const wt = spawn('wt', [`update`, `${webtask}`, `${filepath}`, '-w'])
@@ -53,7 +54,9 @@ async function runWebtask (input, stage) {
 }
 
 async function listWebtasks (input) {
-  exec(`wt ls |grep ${input}`, (err, stdout, stderr) => {
+  const baseCommand = 'wt ls'
+  const command = input ? `${baseCommand} |grep ${input}` : baseCommand
+  exec(command, (err, stdout, stderr) => {
     if (err) {
       logger.error(err)
       return

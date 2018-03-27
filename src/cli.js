@@ -4,7 +4,7 @@ const wt = require('./workflows')
 const pjson = require('../package.json')
 
 program
-  .version(pjson.version)
+  .version(pjson.version, '-v, --version')
   .description(pjson.description)
 
 program
@@ -18,7 +18,7 @@ program
   .action((taskname, stage) => wt.runWebtask(taskname, stage))
 
 program
-  .command('ls <search>')
+  .command('ls [search]')
   .description('list all webtaskthat contain the search text')
   .action(taskname => wt.listWebtasks(taskname))
 
