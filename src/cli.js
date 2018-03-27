@@ -14,17 +14,17 @@ program
 
 program
   .command('cron <filepath> <schedule> [stage]')
-  .description('')
+  .description('create a webtask that run with the specified schedule using cron')
   .action((filepath, schedule, stage) => wt.cronWebtask(filepath, schedule, stage))
 
 program
   .command('run <taskname> [stage]')
-  .description('run a webtask')
+  .description('run a webtask and monitor for local changes')
   .action((taskname, stage) => wt.runWebtask(taskname, stage))
 
 program
   .command('ls [search]')
-  .description('list all webtaskthat contain the search text')
+  .description('list all webtask that contain the search text (using grep, nothing more)')
   .action(taskname => wt.listWebtasks(taskname))
 
 program.parse(process.argv)

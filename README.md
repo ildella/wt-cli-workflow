@@ -16,6 +16,12 @@ Run the remote webtask and keep monitoring for every local change (wraps 'wt upd
 ```shell
 wtw run myfile.js
 ```
+Crete a function that with a specified schedule using cron
+```shell
+wtw cron myfile.js "*/10 * * * *"
+```
+That schedule mean every ten minues past the hour. 
+Use [Corntab](http://corntab.com) to master cron :)
 
 ## Motivations, approach and conventions
 
