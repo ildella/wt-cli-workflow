@@ -44,13 +44,14 @@ This will create a symboli link under user home, something like
 
 Now create a symbolic link to use the CLI globally. In Ubuntu I recommend:
 ```
-sudo update-alternatives --install /usr/bin/wtw wtw ~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow/src/cli.js 1
+sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev ~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow/src/cli.js 1
 ```
 Change {NODE_VERSION} with your installed version of node
+I call this command wtw-dev so it will not be confused with released version on npmjs 
 
 Now from anywhere:
 ```
-$ wtw --help
+$ wtw-dev --help
 
 Usage: wtw [options] [command]
 
@@ -74,6 +75,6 @@ Using [generator](https://github.com/generate/generate-webtask) is simple to cre
 npm install --global generate-webtask
 gen webtask:context
 touch .env
-wtw create index.js
-wtw run index.js
+wtw-dev create index.js
+wtw-dev run index.js
 ```
