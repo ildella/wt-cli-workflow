@@ -1,7 +1,7 @@
 {
   "name": "wtw",
   "version": "0.1.6-alpha.0",
-  "description": "WebTask Workflow - simple workflow for Webtask CLI",
+  "description": "WebTask Workflow is a simple workflow CLI built on top of Webtask CLI",
   "bin": {
     "wtw": "src/cli.js"
   },

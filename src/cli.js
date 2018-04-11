@@ -5,8 +5,7 @@ const pjson = require('../package.json')
 
 program
   .version(pjson.version, '-v, --version')
-  .description(`${pjson.name} ${pjson.version} - ${pjson.description}`)
-  .parse(process.argv)
+  .description(`${pjson.name} ${pjson.version} using wt-cli ${pjson.dependencies['wt-cli']}\n  ${pjson.description}`)
 
 program
   .command('create <filepath> [env]')
@@ -32,5 +31,7 @@ program
   .command('rm [tasks...]')
   .description('remove all the specified webtasks')
   .action(tasks => wt.rmWebtasks(tasks))
+
+program.parse(process.argv)
 
 if (!program.args.length) program.help()

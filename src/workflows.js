@@ -1,5 +1,5 @@
 'use strict'
-require('dotenv').config()
+// require('dotenv').config()
 const logger = require('tracer').colorConsole({level: 'info'})
 const { exec, spawn } = require('child_process')
 const path = require('path')
