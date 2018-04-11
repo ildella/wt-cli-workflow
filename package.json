@@ -1,6 +1,6 @@
 {
   "name": "wtw",
-  "version": "0.1.5",
+  "version": "0.1.6-alpha.0",
   "description": "WebTask Workflow - simple workflow for Webtask CLI",
   "bin": {
     "wtw": "src/cli.js"
@@ -13,7 +13,7 @@
     "commander": "~2.15.1",
     "dotenv": "~5.0.1",
     "tracer": "~0.8.12",
-    "wt-cli": "~9.1.0"
+    "wt-cli": "9.1.0"
   },
   "devDependencies": {
     "eslint": "~4.19.1",
@@ -30,6 +30,7 @@
   "scripts": {
     "test": "jest -o --watch",
     "release": "standard-version",
+    "prerelease": "standard-version --prerelease alpha",
     "publish": "git push --follow-tags origin master && npm publish"
   },
   "repository": {
