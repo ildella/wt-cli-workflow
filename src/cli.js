@@ -5,7 +5,8 @@ const pjson = require('../package.json')
 
 program
   .version(pjson.version, '-v, --version')
-  .description(pjson.description)
+  .description(`${pjson.name} ${pjson.version} - ${pjson.description}`)
+  .parse(process.argv)
 
 program
   .command('create <filepath> [env]')
@@ -32,4 +33,4 @@ program
   .description('remove all the specified webtasks')
   .action(tasks => wt.rmWebtasks(tasks))
 
-program.parse(process.argv)
+if (!program.args.length) program.help()
