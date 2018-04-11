@@ -53,6 +53,15 @@ Webtask cli offer great foundamentals but in real world there are 2 things we al
 
 Here comes wt-cli-workflow, or wtw.
 
+### Setup webtask profile
+We want to create a new Node8 based container and test it:
+```
+wt init -p node8 --url https://sandbox.auth0-extend.com
+echo "module.exports = function (cb) { cb(null, versions: process.versions); }" > hello.js
+wt create hello.js
+```
+BUG: need to fix the URL in ~/.webtask
+
 ### Create 
 ```shell
 wtw create myfile.js
