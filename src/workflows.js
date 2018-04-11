@@ -37,6 +37,7 @@ function _createWebtaskBasic (filepath, env, options) {
     }
   })
   wt.on('exit', function (code) {
+    console.log('exit', code)
     process.exit(code)
   })
 }

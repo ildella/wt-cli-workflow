@@ -5,18 +5,20 @@
   "bin": {
     "wtw": "src/cli.js"
   },
+  "main": "src/cli.js",
   "engines": {
     "node": ">=8.0"
   },
   "dependencies": {
     "commander": "~2.15.1",
     "dotenv": "~5.0.1",
-    "tracer": "~0.8.12"
+    "tracer": "~0.8.12",
+    "wt-cli": "~9.0.5"
   },
   "devDependencies": {
     "eslint": "~4.19.1",
     "eslint-config-standard": "~11.0.0",
-    "eslint-plugin-import": "~2.9.0",
+    "eslint-plugin-import": "~2.10.0",
     "eslint-plugin-jest": "~21.15.0",
     "eslint-plugin-node": "~6.0.1",
     "eslint-plugin-promise": "~3.7.0",
