@@ -3,12 +3,16 @@
 A simple workflow for the [Webtask CLI](https://github.com/auth0/wt-cli)
 
 ## Installation and quickstart
-Assuming you already know and have Webtask:
+Assuming you already know and have a Webtask account:
 ```shell
-npm install -g wtw
+npm i -g wt-cli
+npm i -g wtw
 wtw --help
+wt init
 ```
-Create a remote webtask from an existing file (wraps 'wt create'):
+This last command will go trough the account setup to use the remote runtimes provided by webtask.io
+
+Now, let's create a remote webtask from an existing file (wraps 'wt create'):
 ```shell
 wtw create myfile.js
 ```
@@ -112,14 +116,15 @@ Checkout the code, then
 npm install
 npm link
 ```
-This will create a symboli link under user home, something like
+This will create a symbolic link under user home, something like
 ```
 ~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow -> ~/{project folder}/wt-cli-workflow
 ```
 
 Now create a symbolic link to use the CLI globally. In Ubuntu I recommend:
 ```
-sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev ~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow/src/cli.js 1
+// sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev ~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow/src/cli.js 1
+sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev /usr/local/bin/wtw 1
 ```
 Change {NODE_VERSION} with your installed version of node
 I call this command wtw-dev so it will not be confused with released version on npmjs 
