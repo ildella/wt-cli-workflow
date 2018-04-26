@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.9"></a>
+## [0.1.9](https://github.com/ildella/wt-cli-workflow/compare/v0.1.9-alpha.0...v0.1.9) (2018-04-26)
+
+
+
 <a name="0.1.9-alpha.0"></a>
 ## [0.1.9-alpha.0](https://github.com/ildella/wt-cli-workflow/compare/v0.1.8...v0.1.9-alpha.0) (2018-04-26)
 
