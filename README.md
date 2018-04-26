@@ -137,7 +137,7 @@ $ wtw-dev -h
 ### Use local version
 Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function to be used as a test.
 ```shell
-npm install -g generate-webtask
+npm install -g generate generate-webtask
 generate webtask:context
 touch .env.dev
 wtw-dev create index.js

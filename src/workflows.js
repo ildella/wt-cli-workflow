@@ -4,6 +4,8 @@ const logger = require('tracer').colorConsole({level: 'info'})
 const { exec, spawn } = require('child_process')
 const path = require('path')
 const defaultEnv = 'dev'
+// const bin = './node_modules/wt-cli/bin/wt'
+const bin = 'wt'
 
 const WEBTASK_FILE_MISSING = 'Error resolving the path to the webtask code'
 const WEBTASK_DOESNT_EXISTS = 'Uncaught error:  unable to read the named webtask'
@@ -71,7 +73,7 @@ async function runWebtask (input, env) {
 }
 
 async function listWebtasks (input) {
-  const baseCommand = 'wt ls'
+  const baseCommand = `${bin} ls`
   const command = input ? `${baseCommand} |grep ${input}` : baseCommand
   exec(command, (err, stdout, stderr) => {
     if (err) {
@@ -85,7 +87,7 @@ async function listWebtasks (input) {
 
 async function rmWebtasks (webtasks) {
   webtasks.forEach(function (task) {
-    exec(`node_modules/wt-cli/bin/wt rm ${task}`, (err, stdout, stderr) => {
+    exec(`${bin} rm ${task}`, (err, stdout, stderr) => {
       if (err) {
         logger.error(err)
         return
