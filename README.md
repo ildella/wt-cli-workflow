@@ -64,7 +64,7 @@ wt init -p node8 --url https://sandbox.auth0-extend.com
 echo "module.exports = function (cb) { cb(null, versions: process.versions); }" > hello.js
 wt create hello.js
 ```
-BUG: need to fix the URL in ~/.webtask
+NOTE: there was a but in wt-cli that require some manual change in ~/.webtask. If the new profile to not run node8, then the bug is still there.
 
 ### Create 
 ```shell
