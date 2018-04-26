@@ -85,7 +85,7 @@ async function listWebtasks (input) {
 
 async function rmWebtasks (webtasks) {
   webtasks.forEach(function (task) {
-    exec(`wt rm ${task}`, (err, stdout, stderr) => {
+    exec(`node_modules/wt-cli/bin/wt rm ${task}`, (err, stdout, stderr) => {
       if (err) {
         logger.error(err)
         return
