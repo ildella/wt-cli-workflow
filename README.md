@@ -2,7 +2,7 @@
 
 A simple workflow for the [Webtask CLI](https://github.com/auth0/wt-cli)
 
-## Installation and quickstart
+## Quickstart
 Assuming you already know and have a Webtask account:
 ```shell
 npm i -g wt-cli
@@ -17,28 +17,7 @@ Now, let's create a remote webtask from an existing file (wraps 'wt create'):
 wtw create myfile.js
 ```
 
-Jump to Usage section to see more examples.
-
-## Motivations, approach and conventions
-
-### Why Webtask
-Webtask is a general purpose Function as a Service (or serverless) provider. Simple NodeJS functions can be a task executed on a remote server almost instantly and has a public accessible URL. That's a Webtask
-
-### Why an addional CLI
-Webtask comes with a convenient CLI that already offer all basic commands. 
-As always, it get useful to have some basic best practices and standard workflows to deal with frameworks and service providers. 
-
-### What problems addresses
-wt-cli-workflow deals with
-1. providing easy to use CLI commands to *create* and *run* webtasks based on some  *conventions*
-2. define a set standard run mode and make it easy to work with them: local, development, test, stage, production
-3. make it easy to setup a continuous testing, integration and deliver environment based on Webtask (TBD)
-
-### Conventions
-* Use .env files to store keys, credentials and various secrets
-* env is used as suffix in .env files (eg: .env.dev, .env.prod)
-* env is used as suffix in deploying the webtask (eg: myfile-test, myfile-prod)
-* task name is the file name without the '.js' extension
+You can read about [motivations and general conventions](MOTIVATIONS.md)
 
 ## Usage
 
@@ -57,16 +36,16 @@ Webtask cli offer great foundamentals but in real world there are 2 things we al
 
 Here comes wt-cli-workflow, or wtw.
 
-### Setup webtask profile
-We want to create a new Node8 based container and test it:
+### Setup Webtask Profile (for Node 8)
 ```
-wt init -p node8 --url https://sandbox.auth0-extend.com
-echo "module.exports = function (cb) { cb(null, versions: process.versions); }" > hello.js
+wt init -p CHOOSE_A_NAME
+module.exports = function (cb) { cb(null, {versions: process.versions}) }
 wt create hello.js
 ```
-NOTE: there was a but in wt-cli that require some manual change in ~/.webtask. If the new profile to not run node8, then the bug is still there.
+That won't work cause is Node 8 code and wt containers by default are still Node 4.
+Follow [this guide](https://bit.ly/2HdA3rl) to migrate the profile to Node 8.
 
-### Create 
+### Create a new Task
 ```shell
 wtw create myfile.js
 ```
@@ -82,7 +61,7 @@ This will create a new function named "myfile-test", with a specific url that wi
 ```https://XXX-some-code-XXX.sandbox.auth0-extend.com/myfile-test```
 And the test.env file will be used
 
-### Run
+### Run a Task
 Run the file *after* it has already been created
 ```shell
 wtw run myfile.js
@@ -99,7 +78,8 @@ wtw cron myfile.js "*/10 * * * *"
 That schedule mean every ten minues past the hour. 
 Use [Corntab](http://corntab.com) to master cron :)
 
-### More utilities commands
+### More commands
+This improves the original 'wt ls' and 'wt rm' commands:
 ```shell
 wtw ls // accepts a search params that grep TS out of standard 'wt ls'
 wtw rm //accepts a series of webtasks named and removed them using basic 'wt rm'
@@ -108,38 +88,4 @@ wtw rm //accepts a series of webtasks named and removed them using basic 'wt rm'
 Please let me know what commands you would like to see, or feel free to fork and make pull requests :)
 
 ## Developers
-
-### Setup development environment
-
-Checkout the code, then
-```
-npm install
-npm link
-```
-This will create a symbolic link under user home, something like
-```
-~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow -> ~/{project folder}/wt-cli-workflow
-```
-
-Now create a symbolic link to use the CLI globally. In Ubuntu I recommend:
-```
-// sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev ~/.nvm/versions/node/{NODE_VERSION}/lib/node_modules/wt-cli-workflow/src/cli.js 1
-sudo update-alternatives --install /usr/bin/wtw-dev wtw-dev /usr/local/bin/wtw 1
-```
-Change {NODE_VERSION} with your installed version of node
-I call this command wtw-dev so it will not be confused with released version on npmjs 
-
-Now this will show the cli help in the console.
-```shell
-$ wtw-dev -h
-```
-
-### Use local version
-Using [generator](https://github.com/generate/generate-webtask) is simple to create a basic Webtask function to be used as a test.
-```shell
-npm install -g generate generate-webtask
-generate webtask:context
-touch .env.dev
-wtw-dev create index.js
-wtw-dev run index.js
-```
+If you want to contribute to this project, [here's how](CONTRIBUTIONS.md)
